@@ -1,7 +1,8 @@
 package com.example.examplemod;
 
+import com.example.examplemod.commands.ExampleCommand;
 import com.example.examplemod.config.ConfigHandler;
-import net.minecraft.init.Blocks;
+import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -17,6 +18,9 @@ public class ExampleMod { // select ExampleMod and hit shift+F6 to rename it
     public static final String MODNAME = "examplemodname";// the name of your mod
     public static final String VERSION = "1.0";           // the current version of your mod
 
+    // this method is one entry point of you mod
+    // it is called by forge when minecraft is starting
+    // it is called before the other methods below
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         // loads the config file from the disk
@@ -25,7 +29,6 @@ public class ExampleMod { // select ExampleMod and hit shift+F6 to rename it
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        // some example code
-        System.out.println("DIRT BLOCK >> " + Blocks.dirt.getUnlocalizedName());
+        ClientCommandHandler.instance.registerCommand(new ExampleCommand()); // register your commands here
     }
 }
