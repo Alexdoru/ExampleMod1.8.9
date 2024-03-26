@@ -3,6 +3,7 @@ package com.example.examplemod;
 import com.example.examplemod.commands.ExampleCommand;
 import com.example.examplemod.config.ConfigHandler;
 import com.example.examplemod.events.ExampleKeybindListener;
+import com.example.examplemod.hud.ExampleHUD;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -38,6 +39,6 @@ public class ExampleMod { // select ExampleMod and hit shift+F6 to rename it
         // for that code to run, that class needs to be registered on the MinecraftForge EVENT_BUS
         // register your other EventHandlers here
         MinecraftForge.EVENT_BUS.register(new ExampleKeybindListener());
-
+        MinecraftForge.EVENT_BUS.register(new ExampleHUD());
     }
 }
