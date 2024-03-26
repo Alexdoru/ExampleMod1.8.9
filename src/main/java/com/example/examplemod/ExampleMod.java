@@ -2,7 +2,9 @@ package com.example.examplemod;
 
 import com.example.examplemod.commands.ExampleCommand;
 import com.example.examplemod.config.ConfigHandler;
+import com.example.examplemod.events.ExampleKeybindListener;
 import net.minecraftforge.client.ClientCommandHandler;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -29,6 +31,13 @@ public class ExampleMod { // select ExampleMod and hit shift+F6 to rename it
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        ClientCommandHandler.instance.registerCommand(new ExampleCommand()); // register your commands here
+        // register your commands here
+        ClientCommandHandler.instance.registerCommand(new ExampleCommand());
+
+        // the ExampleKeybind has a method with the @SubscribeEvent annotation
+        // for that code to run, that class needs to be registered on the MinecraftForge EVENT_BUS
+        // register your other EventHandlers here
+        MinecraftForge.EVENT_BUS.register(new ExampleKeybindListener());
+
     }
 }
