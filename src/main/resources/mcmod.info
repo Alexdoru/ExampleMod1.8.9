@@ -2,13 +2,13 @@
 {
   "modid": "examplemod",
   "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "description": "Give a description of your mod here, it will show in the modlist menu",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Put your name here!"],
+  "credits": "",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
