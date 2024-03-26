@@ -38,3 +38,4 @@ Have fun!
 - `Ctrl+Alt+L` Reformat the code of the current file according to your code formatting settings
 - `Ctrl+Alt+O` reorganizes imports statements of your current java file
 - `Ctrl+/` comment/uncomment to selected line(s) of code
+- `Alt+Inser` show suggestions of code generation
