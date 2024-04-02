@@ -6,6 +6,7 @@ import com.example.examplemod.events.ExampleKeybindListener;
 import com.example.examplemod.hud.ExampleHUD;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -40,5 +41,11 @@ public class ExampleMod { // select ExampleMod and hit shift+F6 to rename it
         // register your other EventHandlers here
         MinecraftForge.EVENT_BUS.register(new ExampleKeybindListener());
         MinecraftForge.EVENT_BUS.register(new ExampleHUD());
+
+        if (Loader.isModLoaded("patcher")) {
+            // this code will only run if the mod with id "patcher" is loaded
+            // you can use it to load or not while modules of your mod that depends on other mods
+        }
+
     }
 }

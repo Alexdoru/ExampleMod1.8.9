@@ -27,7 +27,10 @@ minecraft {
 }
 
 dependencies {
-    // you may put jars on which you depend on in ./libs
+    // if you want to use classes of another mod/library, you can add that .jar in a /libs folder
+    // in the project, then open the project structure in `intellIJ > libraries > add` and select the jar
+    // you will now be able to compile your mod while using classes of another mod
+
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
     //compile "some.group:artifact:version"
