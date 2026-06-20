@@ -1,4 +1,4 @@
-package com.example.examplemod.commands;
+package com.exampleaddon.commands;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;

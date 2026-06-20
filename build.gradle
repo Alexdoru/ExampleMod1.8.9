@@ -12,9 +12,9 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "1.0"              // replace with the version of your mod that you have in your main mod file
-group = "com.yourname.modid" // replace with your package name see http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"   // this will be the name of the .jar it can be whatever you like
+version = "1.0"
+group = "com.exampleaddon"    // TODO replace with your package name
+archivesBaseName = "MWEAddon" // TODO this will be the name of the .jar it can be whatever you like
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -30,41 +30,24 @@ minecraft {
     makeObfSourceJar = false
 }
 
+runClient {
+    // disables the updater and shows hidden configs
+    // when working in dev environment
+    jvmArgs += [
+            "-Dmwe.disableUpdater=true"
+            , "-Dconfig.lib.showHidden=true"
+    ]
+}
+
 dependencies {
-    // if you want to use classes of another mod/library, you can add that .jar in a /libs folder
-    // in the project, then open the project structure in `intellIJ > libraries > add` and select the jar
-    // you will now be able to compile your mod while using classes of another mod
 
-    // or you may define them like so..
-    //compile "some.group:artifact:version:classifier"
-    //compile "some.group:artifact:version"
-
-    // real examples
-    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
-
-    // the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
-    //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
-    // except that these dependencies get remapped to your current MCP mappings
-    //deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-    //deobfProvided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // for more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    // TODO create a libs folder and place the latest version of MWE inside
+    //  update the line below to match the name of the MWE file
+    implementation files('libs/MWE-4.1.jar')
 
 }
 
-processResources {
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-        expand 'version': project.version, 'mcversion': project.minecraft.version
-    }
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
+jar {
+    // TODO replace with the name of your bootstrap class
+    manifest.attributes("FMLCorePlugin": 'com.exampleaddon.AddonBootstrap')
 }
