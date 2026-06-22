@@ -2,6 +2,15 @@
 
 This is an example for making an addon mod for MWE.
 
+## Why make an addon ?
+
+If you want to add stuff to MWE consider making an addon using this template instead of modifying MWE directly.
+By making an addon mod, users can install latest version of official MWE and multiple addons of their liking.
+Whereas if you modify MWE and distribute it, users are stuck with your modified MWE at whatever version it was made.
+So they can't install latest version of MWE, and they can't install other modified MWE that have different features.
+
+If you are a developer and need more things exposed in the MWE api let me know.
+
 ## How to get started
 - Download this project [as a zip](https://github.com/Alexdoru/ExampleMod1.8.9/archive/refs/heads/mwe-addon.zip) by clicking the `<> Code` button and `Download Zip`
 - Unzip the project in a directory of your liking
