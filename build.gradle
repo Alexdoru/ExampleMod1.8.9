@@ -43,7 +43,7 @@ dependencies {
 
     // TODO create a libs folder and place the latest version of MWE inside
     //  update the line below to match the name of the MWE file
-    implementation files('libs/MWE-4.1.jar')
+    implementation files('libs/MWE-4.4.jar')
 
 }
 

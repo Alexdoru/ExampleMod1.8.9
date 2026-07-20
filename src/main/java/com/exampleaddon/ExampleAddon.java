@@ -3,7 +3,6 @@ package com.exampleaddon;
 import com.exampleaddon.commands.ExampleCommand;
 import com.exampleaddon.config.ExampleConfig;
 import com.exampleaddon.hud.ExampleHUD;
-import fr.alexdoru.configlib.api.ConfigLib;
 import fr.alexdoru.configlib.api.IConfigHandler;
 import fr.alexdoru.mwe.api.IMWEAddon;
 import fr.alexdoru.mwe.api.MWEApi;
@@ -13,6 +12,8 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import java.io.File;
+import java.net.URI;
+import java.net.URL;
 
 public class ExampleAddon implements IMWEAddon {
 
@@ -25,7 +26,7 @@ public class ExampleAddon implements IMWEAddon {
 
     @Override
     public String targetVersion() {
-        return "4.1";// TODO replace with the minimal version of MWE required for your plugin to work
+        return "4.4";// TODO replace with the minimal version of MWE required for your plugin to work
     }
 
     @Override
@@ -42,6 +43,9 @@ public class ExampleAddon implements IMWEAddon {
         //this.configHandler.registerConfig(ExampleConfig.class);
         //// this will automatically create the command /addon that will open the config menu
         //this.configHandler.registerConfigCommand("addon");
+
+        // use the auto-updater if you want your addon to be auto updated from GitHub
+        // this.startAutoUpdater();
     }
 
     @Override
@@ -58,5 +62,17 @@ public class ExampleAddon implements IMWEAddon {
     @Override
     public void postInit(FMLPostInitializationEvent fmlPostInitializationEvent) {
 
+    }
+
+    private void startAutoUpdater() {
+        try {
+            final URL location = ExampleAddon.class.getProtectionDomain().getCodeSource().getLocation();
+            final String raw = location.toString();
+            final String path = raw.substring(4, raw.indexOf("!"));
+            final File jarFile = new File(new URI(path));
+            new ExampleUpdater(jarFile).start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
