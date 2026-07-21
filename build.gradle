@@ -12,9 +12,9 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "1.0"              // replace with the version of your mod that you have in your main mod file
-group = "com.yourname.modid" // replace with your package name see http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"   // this will be the name of the .jar it can be whatever you like
+version = project.modVersion
+group = project.modPackageName
+archivesBaseName = project.modName
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -60,10 +60,21 @@ dependencies {
 processResources {
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
+    inputs.property "modid", project.modId
+    inputs.property "modname", project.modName
+    inputs.property "modDescription", project.modDescription
+    inputs.property "author", project.author
+
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-        expand 'version': project.version, 'mcversion': project.minecraft.version
+        expand 'version': project.version,
+                'mcversion': project.minecraft.version,
+                'modid': project.modId,
+                'modname': project.modName,
+                'modDescription': project.modDescription,
+                'author': project.author
     }
+
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }

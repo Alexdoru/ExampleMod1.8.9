@@ -28,12 +28,11 @@ This example mod comes in 3 flavors, each in a separate branch, change branch to
 
 Source code lives in `src/java`. Update these files:
 
-| File | Edit |
-|---|---|
-| `ExampleMod.java` | `MODID`, `MODNAME`, `VERSION` |
-| `build.gradle` | `version`, `group`, `archivesBaseName` |
-| `mcmod.info` | `"modid"`, `"name"` (leave `"version"` and `"mcversion"` alone) |
-| Package `com.example.examplemod` | Rename via `Shift+F6` |
+| File                             | Edit                          |
+|----------------------------------|-------------------------------|
+| `ExampleMod.java`                | `MODID`, `MODNAME`, `VERSION` |
+| `gradle.properties`              | Edit all the fields           |
+| Package `com.example.examplemod` | Rename via `Shift+F6`         |
 
 Keep `modid`/`modname` consistent across all files. Each file has comments to guide you.
 
