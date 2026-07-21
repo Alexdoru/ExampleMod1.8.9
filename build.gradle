@@ -5,16 +5,19 @@ buildscript {
             name = "forge"
             url = 'https://maven.minecraftforge.net/'
         }
+        maven { url = "https://repo.spongepowered.org/maven" }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+        classpath 'org.spongepowered:mixingradle:0.6-SNAPSHOT'
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'org.spongepowered.mixin'
 
-version = "1.0"              // replace with the version of your mod that you have in your main mod file
-group = "com.yourname.modid" // replace with your package name see http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"   // this will be the name of the .jar it can be whatever you like
+version = project.modVersion
+group = project.modPackageName
+archivesBaseName = project.modName
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -23,48 +26,79 @@ compileJava {
     options.encoding = "UTF-8"
 }
 
+ext {
+    mixinConfigFile = "mixins.${project.modId}.json"
+    mixinRefmapFile = "mixins.${project.modId}.refmap.json"
+}
+
 minecraft {
     version = "1.8.9-11.15.1.2318-1.8.9"
     runDir = "run"
     mappings = "stable_22"
     makeObfSourceJar = false
+    clientRunArgs += ["--tweakClass", "org.spongepowered.asm.launch.MixinTweaker", "--mixin", mixinConfigFile]
+    serverRunArgs += ["--tweakClass", "org.spongepowered.asm.launch.MixinTweaker", "--mixin", mixinConfigFile]
+}
+
+runClient {
+    jvmArgs += [
+            "-Dmixin.debug=true",
+            "-Dmixin.debug.verbose=true",
+            "-Dmixin.debug.export=true"
+    ]
+}
+
+mixin {
+    add sourceSets.main, mixinRefmapFile
+}
+
+repositories {
+    maven { url = "https://repo.spongepowered.org/maven" }
 }
 
 dependencies {
-    // if you want to use classes of another mod/library, you can add that .jar in a /libs folder
-    // in the project, then open the project structure in `intellIJ > libraries > add` and select the jar
-    // you will now be able to compile your mod while using classes of another mod
-
-    // or you may define them like so..
-    //compile "some.group:artifact:version:classifier"
-    //compile "some.group:artifact:version"
-
-    // real examples
-    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
-
-    // the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
-    //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
-    // except that these dependencies get remapped to your current MCP mappings
-    //deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-    //deobfProvided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // for more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
+    provided('org.spongepowered:mixin:0.7.11-SNAPSHOT') {
+        exclude module: 'guava'
+        exclude module: 'commons-io'
+        exclude module: 'gson'
+    }
 }
 
 processResources {
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
+    inputs.property "modid", project.modId
+    inputs.property "modname", project.modName
+
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-        expand 'version': project.version, 'mcversion': project.minecraft.version
+        expand 'version': project.version,
+                'mcversion': project.minecraft.version,
+                'modid': project.modId,
+                'modname': project.modName
     }
+
     from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
+        include 'mixins.template.json'
+        rename 'mixins\\.template\\.json', mixinConfigFile
+        expand 'modid': project.modId, 'refmap': mixinRefmapFile
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info', 'mixins.template.json'
+    }
+}
+
+jar {
+    from(configurations.provided.collect {
+        it.isDirectory() ? it : zipTree(it)
+    }) {
+        exclude "META-INF/MANIFEST.MF", "META-INF/maven/**", "META-INF/*.RSA", "META-INF/*.SF"
+    }
+    manifest {
+        attributes "TweakClass": "org.spongepowered.asm.launch.MixinTweaker"
+        attributes "TweakOrder": "0"
+        attributes "ForceLoadAsMod": "true"
+        attributes "MixinConfigs": mixinConfigFile
     }
 }

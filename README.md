@@ -1,6 +1,6 @@
-# Example Mod 1.8.9
+# Mixins Example Mod 1.8.9
 
-An example mod for Minecraft Forge 1.8.9, based on the official [Forge Mod Development Kit](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.8.9.html).
+This is the same example mod but with mixins ready to go
 
 ## Getting started
 
@@ -20,12 +20,12 @@ An example mod for Minecraft Forge 1.8.9, based on the official [Forge Mod Devel
 
 Source code lives in `src/java`. Update these files:
 
-| File | Edit |
-|---|---|
-| `ExampleMod.java` | `MODID`, `MODNAME`, `VERSION` |
-| `build.gradle` | `version`, `group`, `archivesBaseName` |
-| `mcmod.info` | `"modid"`, `"name"` (leave `"version"` and `"mcversion"` alone) |
-| Package `com.example.examplemod` | Rename via `Shift+F6` |
+| File                             | Edit                                               |
+|----------------------------------|----------------------------------------------------|
+| `ExampleMod.java`                | `MODID`, `MODNAME`, `VERSION`                      |
+| `gradle.properties`              | `modVersion`, `modName`, `modId`, `modPackageName` |
+| Package `com.example.examplemod` | Rename via `Shift+F6`                              |
+| `mixins.examplemod.json`         | Change the name of the file                       |
 
 Keep `modid`/`modname` consistent across all files. Each file has comments to guide you.
 

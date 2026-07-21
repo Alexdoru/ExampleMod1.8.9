@@ -1,0 +1,10 @@
+{
+  "compatibilityLevel": "JAVA_8",
+  "package": "com.example.examplemod.mixins",
+  "minVersion": "0.7.11",
+  "mixins": [],
+  "client": [
+    "mc.client.MixinMinecraftTest"
+  ],
+  "server": []
+}

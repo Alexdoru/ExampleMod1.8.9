@@ -1,7 +1,7 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
+  "modid": "${modid}",
+  "name": "${modname}",
   "description": "Give a description of your mod here, it will show in the modlist menu",
   "version": "${version}",
   "mcversion": "${mcversion}",
