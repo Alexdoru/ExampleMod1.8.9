@@ -20,12 +20,12 @@ This is the same example mod but with mixins ready to go
 
 Source code lives in `src/java`. Update these files:
 
-| File                             | Edit                                               |
-|----------------------------------|----------------------------------------------------|
-| `ExampleMod.java`                | `MODID`, `MODNAME`, `VERSION`                      |
-| `gradle.properties`              | `modVersion`, `modName`, `modId`, `modPackageName` |
-| Package `com.example.examplemod` | Rename via `Shift+F6`                              |
-| `mixins.examplemod.json`         | Change the name of the file                       |
+| File                             | Edit                          |
+|----------------------------------|-------------------------------|
+| `ExampleMod.java`                | `MODID`, `MODNAME`, `VERSION` |
+| `gradle.properties`              | Edit all the fields           |
+| Package `com.example.examplemod` | Rename via `Shift+F6`         |
+| `mixins.examplemod.json`         | Change the name of the file   |
 
 Keep `modid`/`modname` consistent across all files. Each file has comments to guide you.
 

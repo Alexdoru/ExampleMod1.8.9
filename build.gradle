@@ -69,13 +69,17 @@ processResources {
     inputs.property "mcversion", project.minecraft.version
     inputs.property "modid", project.modId
     inputs.property "modname", project.modName
+    inputs.property "modDescription", project.modDescription
+    inputs.property "author", project.author
 
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
         expand 'version': project.version,
                 'mcversion': project.minecraft.version,
                 'modid': project.modId,
-                'modname': project.modName
+                'modname': project.modName,
+                'modDescription': project.modDescription,
+                'author': project.author
     }
 
     from(sourceSets.main.resources.srcDirs) {
