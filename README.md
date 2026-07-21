@@ -2,6 +2,14 @@
 
 An example mod for Minecraft Forge 1.8.9, based on the official [Forge Mod Development Kit](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.8.9.html).
 
+This example mod comes in 3 flavors, each in a separate branch, change branch to see the other examples :
+
+| Mod       | Desc |
+|-----------|------|
+| Normal    |  a basic example mod    |
+| Mixins    |  an example mod with mixins ready    |
+| MWE Addon |  an addon for my mod [MWE](https://github.com/Alexdoru/MWE)   |
+
 ## Getting started
 
 1. Install [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/?section=windows).
