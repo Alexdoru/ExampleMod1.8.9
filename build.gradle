@@ -36,9 +36,10 @@ task generateBuildConfig {
 package ${buildConfigPackage};
 
 public final class BuildConfig {
-    public static final String ADDONID = "${project.addonId}";
-    public static final String ADDONNAME = "${project.addonName}";
+    public static final String ADDON_ID = "${project.addonId}";
+    public static final String ADDON_NAME = "${project.addonName}";
     public static final String VERSION = "${project.version}";
+    public static final String TARGET_MWE_VERSION = "${project.targetMWEVersion}";
 }
 """
         }
@@ -83,8 +84,7 @@ repositories {
 }
 
 dependencies {
-    // TODO replace with the MWE version that you need
-    implementation "com.github.Alexdoru:MWE:4.4.1"
+    implementation "com.github.Alexdoru:MWE:${project.targetMWEVersion}"
 }
 
 jar {

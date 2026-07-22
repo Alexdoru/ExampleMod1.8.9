@@ -21,12 +21,12 @@ public class ExampleAddon implements IMWEAddon {
 
     @Override
     public String name() {
-        return BuildConfig.ADDONID;
+        return BuildConfig.ADDON_ID;
     }
 
     @Override
     public String targetVersion() {
-        return "4.4";// TODO replace with the minimal version of MWE required for your plugin to work
+        return BuildConfig.TARGET_MWE_VERSION;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class ExampleAddon implements IMWEAddon {
 
         // TODO change the name of the file, if all addons use the same it won't work well...
         //final File configFile = new File(event.getModConfigurationDirectory(), "addon.cfg");
-        //this.configHandler = fr.alexdoru.configlib.api.ConfigLib.newConfigHandler(configFile, BuildConfig.ADDONNAME);
+        //this.configHandler = fr.alexdoru.configlib.api.ConfigLib.newConfigHandler(configFile, BuildConfig.ADDON_NAME);
         //this.configHandler.registerConfig(ExampleConfig.class);
         //// this will automatically create the command /addon that will open the config menu
         //this.configHandler.registerConfigCommand(this.name());

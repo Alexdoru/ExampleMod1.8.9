@@ -14,7 +14,7 @@ public class ExampleUpdater extends ModUpdater {
     public ExampleUpdater(File modJarFile) {
         super(
                 modJarFile,
-                BuildConfig.ADDONNAME,
+                BuildConfig.ADDON_NAME,
                 BuildConfig.VERSION,
                 true // TODO set true to auto install
         );
