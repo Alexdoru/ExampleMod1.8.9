@@ -1,5 +1,7 @@
 # Mixins Example Mod 1.8.9
 
+Mixins is a bytecode manipulation library allowing you to modify/add code to the vanilla minecraft classes. Learn more about mixins [here](https://github.com/SpongePowered/Mixin/wiki).
+
 ## Getting started
 
 1. Install [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/?section=windows).
