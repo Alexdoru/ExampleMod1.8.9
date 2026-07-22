@@ -22,6 +22,44 @@ archivesBaseName = project.modName
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+def generatedSourcesDir = file("$buildDir/generated/sources/${project.modId}")
+def buildConfigPackage = project.modPackageName
+
+task generateBuildConfig {
+    outputs.dir generatedSourcesDir
+
+    doLast {
+        generatedSourcesDir.mkdirs()
+
+        def packagePath = buildConfigPackage.replace('.', '/')
+
+        file("$generatedSourcesDir/$packagePath/BuildConfig.java").with {
+            parentFile.mkdirs()
+            text = """
+package ${buildConfigPackage};
+
+public final class BuildConfig {
+    public static final String MODID = "${project.modId}";
+    public static final String MODNAME = "${project.modName}";
+    public static final String VERSION = "${project.version}";
+}
+"""
+        }
+    }
+}
+
+compileJava.dependsOn generateBuildConfig
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+            srcDir generatedSourcesDir
+        }
+        resources.srcDirs = ['src/main/resources']
+    }
+}
+
 compileJava {
     options.encoding = "UTF-8"
 }
@@ -57,6 +95,29 @@ repositories {
 }
 
 dependencies {
+    // if you want to use classes of another mod/library, you can add that .jar in a /libs folder
+    // in the project, then open the project structure in `intellIJ > libraries > add` and select the jar
+    // you will now be able to compile your mod while using classes of another mod
+
+    // or you may define them like so..
+    //compile "some.group:artifact:version:classifier"
+    //compile "some.group:artifact:version"
+
+    // real examples
+    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
+    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
+
+    // the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
+    //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
+
+    // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
+    // except that these dependencies get remapped to your current MCP mappings
+    //deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
+    //deobfProvided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
+
+    // for more info...
+    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
+    // http://www.gradle.org/docs/current/userguide/dependency_management.html
     provided('org.spongepowered:mixin:0.7.11-SNAPSHOT') {
         exclude module: 'guava'
         exclude module: 'commons-io'
