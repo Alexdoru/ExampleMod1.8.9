@@ -4,11 +4,11 @@ An example mod for Minecraft Forge 1.8.9, based on the official [Forge Mod Devel
 
 This example mod comes in 3 flavors, each in a separate branch, change branch to see the other examples :
 
-| Mod       | Desc |
-|-----------|------|
-| Normal    |  a basic example mod    |
-| Mixins    |  an example mod with mixins ready    |
-| MWE Addon |  an addon for my mod [MWE](https://github.com/Alexdoru/MWE)   |
+| Branch                                                                  | Description                                                |
+|-------------------------------------------------------------------------|------------------------------------------------------------|
+| [master](https://github.com/Alexdoru/ExampleMod1.8.9/tree/master)       | a basic example mod                                        |
+| [mixins](https://github.com/Alexdoru/ExampleMod1.8.9/tree/mixins)       | an example mod with mixins ready                           |
+| [mwe-addon](https://github.com/Alexdoru/ExampleMod1.8.9/tree/mwe-addon) | an addon for my mod [MWE](https://github.com/Alexdoru/MWE) |
 
 ## Getting started
 
