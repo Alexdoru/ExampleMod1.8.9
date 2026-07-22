@@ -21,7 +21,7 @@ public class ExampleAddon implements IMWEAddon {
 
     @Override
     public String name() {
-        return "exampleaddon";
+        return BuildConfig.ADDONID;
     }
 
     @Override
@@ -38,14 +38,14 @@ public class ExampleAddon implements IMWEAddon {
         // registering your config like this will give you a dedicated menu for your addon
 
         // TODO change the name of the file, if all addons use the same it won't work well...
-        //final File configFile = new File(event.getModConfigurationDirectory(), "addon.cfg");
-        //this.configHandler = ConfigLib.newConfigHandler(configFile, "addonname");
+        final File configFile = new File(event.getModConfigurationDirectory(), "addon.cfg");
+        //this.configHandler = fr.alexdoru.configlib.api.ConfigLib.newConfigHandler(configFile, BuildConfig.ADDONNAME);
         //this.configHandler.registerConfig(ExampleConfig.class);
         //// this will automatically create the command /addon that will open the config menu
-        //this.configHandler.registerConfigCommand("addon");
+        //this.configHandler.registerConfigCommand(this.name());
 
-        // use the auto-updater if you want your addon to be auto updated from GitHub
-        // this.startAutoUpdater();
+         //use the auto-updater if you want your addon to be auto updated from GitHub
+         //this.startAutoUpdater();
     }
 
     @Override

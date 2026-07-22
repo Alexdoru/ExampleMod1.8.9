@@ -14,8 +14,8 @@ public class ExampleUpdater extends ModUpdater {
     public ExampleUpdater(File modJarFile) {
         super(
                 modJarFile,
-                "example", // TODO replace with your addon name
-                "1.0", // TODO replace with your addon version
+                BuildConfig.ADDONNAME,
+                BuildConfig.VERSION,
                 true // TODO set true to auto install
         );
     }

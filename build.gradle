@@ -12,14 +12,14 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = project.modVersion
+version = project.addonVersion
 group = project.modPackageName
-archivesBaseName = project.modName
+archivesBaseName = project.addonName
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-def generatedSourcesDir = file("$buildDir/generated/sources/${project.modId}")
+def generatedSourcesDir = file("$buildDir/generated/sources/${project.addonId}")
 def buildConfigPackage = project.modPackageName
 
 task generateBuildConfig {
@@ -36,8 +36,8 @@ task generateBuildConfig {
 package ${buildConfigPackage};
 
 public final class BuildConfig {
-    public static final String MODID = "${project.modId}";
-    public static final String MODNAME = "${project.modName}";
+    public static final String ADDONID = "${project.addonId}";
+    public static final String ADDONNAME = "${project.addonName}";
     public static final String VERSION = "${project.version}";
 }
 """
@@ -86,6 +86,5 @@ dependencies {
 }
 
 jar {
-    // TODO replace with the name of your bootstrap class
-    manifest.attributes("FMLCorePlugin": 'com.exampleaddon.AddonBootstrap')
+    manifest.attributes("FMLCorePlugin": "${project.modPackageName}.AddonBootstrap")
 }
