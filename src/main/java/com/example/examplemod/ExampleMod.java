@@ -43,8 +43,8 @@ public class ExampleMod { // select ExampleMod and hit shift+F6 to rename it
         MinecraftForge.EVENT_BUS.register(new ExampleHUD());
 
         if (Loader.isModLoaded("patcher")) {
-            // this code will only run if the mod with id "patcher" is loaded
-            // you can use it to load or not while modules of your mod that depends on other mods
+            // this code will only run if the mod with modid "patcher" is loaded
+            // you can use it to load or not modules of your mod that depends on other mods
         }
 
     }

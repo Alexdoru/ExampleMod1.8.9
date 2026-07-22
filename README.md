@@ -21,12 +21,12 @@ This example mod comes in 3 flavors, each in a separate branch, change branch to
 
 **Common tasks:**
 - `forgegradle > runClient` – launch a Minecraft client to test your mod
-- `build > build` – compile a `.jar` into `ExampleMod/build/libs`
+- `build > build` – compile your mod into a usable `.jar` found into `ExampleMod/build/libs`
 - `build > clean` – clear cached build files if you run into issues
 
 ## Making it your own
 
-Source code lives in `src/java`. Update these files:
+To make the mod your own you need to update these files:
 
 | File                             | Edit                          |
 |----------------------------------|-------------------------------|
