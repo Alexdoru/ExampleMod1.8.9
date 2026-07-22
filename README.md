@@ -13,11 +13,13 @@ This example mod comes in 3 flavors, each in a separate branch, change branch to
 ## Getting started
 
 1. Install [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/?section=windows).
-2. In IntelliJ, click **Get from VCS** and paste this repo's URL: `https://github.com/Alexdoru/ExampleMod1.8.9.git`.
-3. *(Optional)* Install the [Minecraft Development](https://plugins.jetbrains.com/plugin/8327-minecraft-development) plugin via `Ctrl+Alt+S > Plugins`, then restart IntelliJ.
-4. Set the project SDK to Java 8 via `File > Project Structure` (`Ctrl+Alt+Shift+S`). IntelliJ can download one for you.
-5. In the Gradle panel, open `Build Tool Settings > Gradle Settings` (wrench icon) and set **Gradle JVM** to the same Java 8 JDK.
-6. Under `Tasks > forgegradle`, run `setupDecompWorkspace`, then restart IntelliJ.
+2. Download the source code of this branch as a zip : [master](https://github.com/Alexdoru/ExampleMod1.8.9/archive/refs/heads/master.zip).
+3. Create a folder that will contain your project and extract the contents of the zip in it.
+4. In IntelliJ, click **New project from existing sources** and select the `build.gradle` file.
+5. *(Optional)* Install the [Minecraft Development](https://plugins.jetbrains.com/plugin/8327-minecraft-development) plugin via `Ctrl+Alt+S > Plugins`, then restart IntelliJ.
+6. Set the project SDK to Java 8 via `File > Project Structure` (`Ctrl+Alt+Shift+S`). IntelliJ can download one for you.
+7. In the Gradle panel, open `Build Tool Settings > Gradle Settings` (wrench icon) and set **Gradle JVM** to the same Java 8 JDK.
+8. Under `Tasks > forgegradle`, run `setupDecompWorkspace`, then restart IntelliJ.
 
 **Common tasks:**
 - `forgegradle > runClient` – launch a Minecraft client to test your mod
