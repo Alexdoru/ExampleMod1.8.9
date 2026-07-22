@@ -144,13 +144,7 @@ processResources {
     }
 
     from(sourceSets.main.resources.srcDirs) {
-        include 'mixins.template.json'
-        rename 'mixins\\.template\\.json', mixinConfigFile
-        expand 'modid': project.modId, 'refmap': mixinRefmapFile
-    }
-
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info', 'mixins.template.json'
+        exclude 'mcmod.info'
     }
 }
 

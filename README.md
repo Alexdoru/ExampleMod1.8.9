@@ -20,11 +20,11 @@
 
 To make the mod your own you need to update these files:
 
-| File                             | Edit                                                                             |
-|----------------------------------|----------------------------------------------------------------------------------|
-| `gradle.properties`              | Edit all the fields                                                              |
-| Package `com.example.examplemod` | Rename via `Shift+F6`                                                            |
-| `mixins.examplemod.json`         | Change the name of the file, change the `package` to point to your mixins folder |
+| File                             | Edit                                                                                                                                     |
+|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| `gradle.properties`              | Edit all the fields                                                                                                                      |
+| Package `com.example.examplemod` | Rename via `Shift+F6`                                                                                                                    |
+| `mixins.examplemod.json`         | Change the name of the file to have your modId, change the `package` to point to your mixins pacakge, change `refmap` to have your modId |
 
 The `modid` should never change, it is used as a unique identifier by forge.
 
