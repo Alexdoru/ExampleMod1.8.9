@@ -30,11 +30,10 @@ To make the mod your own you need to update these files:
 
 | File                             | Edit                          |
 |----------------------------------|-------------------------------|
-| `ExampleMod.java`                | `MODID`, `MODNAME`, `VERSION` |
 | `gradle.properties`              | Edit all the fields           |
 | Package `com.example.examplemod` | Rename via `Shift+F6`         |
 
-Keep `modid`/`modname` consistent across all files. Each file has comments to guide you.
+The `modid` should never change, it is used as a unique identifier by forge.
 
 ## Useful IntelliJ keybinds
 

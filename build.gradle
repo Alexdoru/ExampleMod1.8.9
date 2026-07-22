@@ -19,6 +19,44 @@ archivesBaseName = project.modName
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+def generatedSourcesDir = file("$buildDir/generated/sources/${project.modId}")
+def buildConfigPackage = project.modPackageName
+
+task generateBuildConfig {
+    outputs.dir generatedSourcesDir
+
+    doLast {
+        generatedSourcesDir.mkdirs()
+
+        def packagePath = buildConfigPackage.replace('.', '/')
+
+        file("$generatedSourcesDir/$packagePath/BuildConfig.java").with {
+            parentFile.mkdirs()
+            text = """
+package ${buildConfigPackage};
+
+public final class BuildConfig {
+    public static final String MODID = "${project.modId}";
+    public static final String MODNAME = "${project.modName}";
+    public static final String VERSION = "${project.version}";
+}
+"""
+        }
+    }
+}
+
+compileJava.dependsOn generateBuildConfig
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+            srcDir generatedSourcesDir
+        }
+        resources.srcDirs = ['src/main/resources']
+    }
+}
+
 compileJava {
     options.encoding = "UTF-8"
 }
