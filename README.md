@@ -18,7 +18,10 @@ If you are a developer and need more things exposed in the MWE api let me know.
 5. *(Optional)* Install the [Minecraft Development](https://plugins.jetbrains.com/plugin/8327-minecraft-development) plugin via `Ctrl+Alt+S > Plugins`, then restart IntelliJ.
 6. Set the project SDK to Java 8 via `File > Project Structure` (`Ctrl+Alt+Shift+S`). IntelliJ can download one for you.
 7. In the Gradle panel, open `Build Tool Settings > Gradle Settings` (wrench icon) and set **Gradle JVM** to the same Java 8 JDK.
-8. Under `Tasks > forgegradle`, run `setupDecompWorkspace`, then restart IntelliJ.
+8. Download the latest version of MWE from the [release page](https://github.com/Alexdoru/MWE/releases)
+9. Create a `libs` folder and place the `MWE.jar` inside
+10. In the `build.gradle` under `dependencies` replace with the actual name of the MWE jar file
+11. Under `Tasks > forgegradle`, run `setupDecompWorkspace`, then restart IntelliJ.
 
 **Common tasks:**
 - `forgegradle > runClient` – launch a Minecraft client to test your mod
