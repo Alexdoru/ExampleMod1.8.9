@@ -38,7 +38,7 @@ public class ExampleAddon implements IMWEAddon {
         // registering your config like this will give you a dedicated menu for your addon
 
         // TODO change the name of the file, if all addons use the same it won't work well...
-        final File configFile = new File(event.getModConfigurationDirectory(), "addon.cfg");
+        //final File configFile = new File(event.getModConfigurationDirectory(), "addon.cfg");
         //this.configHandler = fr.alexdoru.configlib.api.ConfigLib.newConfigHandler(configFile, BuildConfig.ADDONNAME);
         //this.configHandler.registerConfig(ExampleConfig.class);
         //// this will automatically create the command /addon that will open the config menu

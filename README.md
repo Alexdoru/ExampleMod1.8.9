@@ -32,10 +32,11 @@ If you are a developer and need more things exposed in the MWE api let me know.
 
 To make the addon your own you need to update these files:
 
-| File                             | Edit                          |
-|----------------------------------|-------------------------------|
-| `gradle.properties`              | Edit all the fields           |
-| Package `com.example.examplemod` | Rename via `Shift+F6`         |
+| File                             | Edit                  |
+|----------------------------------|-----------------------|
+| `gradle.properties`              | Edit all the fields   |
+| Package `com.example.examplemod` | Rename via `Shift+F6` |
+| `ExampleAddon`, `AddonBootstrap` | Complete TODO         |
 
 ### To be sure your addon will be compatible with any future version of MWE, you should only use classes from the [mwe/api](https://github.com/Alexdoru/MWE/tree/master/src/main/java/fr/alexdoru/mwe/api) and [configlib/api](https://github.com/Alexdoru/MWE/tree/master/src/configlib/java/fr/alexdoru/configlib/api)
 
