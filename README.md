@@ -18,10 +18,7 @@ If you are a developer and need more things exposed in the MWE api let me know.
 5. *(Optional)* Install the [Minecraft Development](https://plugins.jetbrains.com/plugin/8327-minecraft-development) plugin via `Ctrl+Alt+S > Plugins`, then restart IntelliJ.
 6. Set the project SDK to Java 8 via `File > Project Structure` (`Ctrl+Alt+Shift+S`). IntelliJ can download one for you.
 7. In the Gradle panel, open `Build Tool Settings > Gradle Settings` (wrench icon) and set **Gradle JVM** to the same Java 8 JDK.
-8. Download the latest version of MWE from the [release page](https://github.com/Alexdoru/MWE/releases)
-9. Create a `libs` folder and place the `MWE.jar` inside
-10. In the `build.gradle` under `dependencies` replace with the actual name of the MWE jar file
-11. Under `Tasks > forgegradle`, run `setupDecompWorkspace`, then restart IntelliJ.
+8. Under `Tasks > forgegradle`, run `setupDecompWorkspace`, then restart IntelliJ.
 
 **Common tasks:**
 - `forgegradle > runClient` – launch a Minecraft client to test your mod
@@ -32,11 +29,12 @@ If you are a developer and need more things exposed in the MWE api let me know.
 
 To make the addon your own you need to update these files:
 
-| File                             | Edit                  |
-|----------------------------------|-----------------------|
-| `gradle.properties`              | Edit all the fields   |
-| Package `com.example.examplemod` | Rename via `Shift+F6` |
-| `ExampleAddon`, `AddonBootstrap` | Complete TODO         |
+| File                             | Edit                   |
+|----------------------------------|------------------------|
+| `gradle.properties`              | Edit all the fields    |
+| Package `com.example.examplemod` | Rename via `Shift+F6`  |
+| `ExampleAddon`, `AddonBootstrap` | Complete TODO          |
+| `build.gradle`                   | Change the MWE version |
 
 ### To be sure your addon will be compatible with any future version of MWE, you should only use classes from the [mwe/api](https://github.com/Alexdoru/MWE/tree/master/src/main/java/fr/alexdoru/mwe/api) and [configlib/api](https://github.com/Alexdoru/MWE/tree/master/src/configlib/java/fr/alexdoru/configlib/api)
 

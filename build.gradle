@@ -77,12 +77,14 @@ runClient {
     ]
 }
 
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
 dependencies {
-
-    // TODO create a libs folder and place the latest version of MWE inside
-    //  update the line below to match the name of the MWE file
-    implementation files('libs/MWE-4.4.1.jar')
-
+    // TODO replace with the MWE version that you need
+    implementation "com.github.Alexdoru:MWE:4.4.1"
 }
 
 jar {
