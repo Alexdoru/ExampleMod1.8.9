@@ -79,6 +79,7 @@ minecraft {
 }
 
 runClient {
+    outputs.upToDateWhen { false }
     jvmArgs += [
             "-Dmixin.debug=true",
             "-Dmixin.debug.verbose=true",
