@@ -70,6 +70,7 @@ minecraft {
 }
 
 runClient {
+    outputs.upToDateWhen { false }
     // disables the updater and shows hidden configs
     // when working in dev environment
     jvmArgs += [
