@@ -68,6 +68,10 @@ minecraft {
     makeObfSourceJar = false
 }
 
+runClient {
+    outputs.upToDateWhen { false }
+}
+
 dependencies {
     // if you want to use classes of another mod/library, you can add that .jar in a /libs folder
     // in the project, then open the project structure in `intellIJ > libraries > add` and select the jar
