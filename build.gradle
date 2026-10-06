@@ -85,7 +85,7 @@ repositories {
 }
 
 dependencies {
-    implementation "com.github.Alexdoru:MWE:${project.targetMWEVersion}"
+    implementation "com.github.Alexdoru:MWE:${project.targetMWEVersion}:dev"
 }
 
 jar {
